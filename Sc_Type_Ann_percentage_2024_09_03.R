@@ -1,3 +1,5 @@
+############ load gene set preparation function ###############
+
 gene_sets_prepare <- function(path_to_db_file, cell_type){
   
   cell_markers = openxlsx::read.xlsx(path_to_db_file)
@@ -43,6 +45,7 @@ gene_sets_prepare <- function(path_to_db_file, cell_type){
   list(gs_positive = gs, gs_negative = gs2)
 }
 
+############ load cell type annotation function ############               
 sctype_score <- function(scRNAseqData, scaled = !0, gs, gs2 = NULL, gene_names_to_uppercase = !0, ...){
   
   # check input matrix
@@ -152,6 +155,8 @@ for(j in unique(sctype_scores$cluster)){
 
 DimPlot(Brain_data, reduction = "umap", label = TRUE, repel = TRUE, group.by = 'sctype_classification')        
 
+################# find the percentage of each cell types in each clusters #####################
+# List of cell type columns to analyze               
 cell_type_columns <-  "sctype_classification"
 
 Sc_type_cluster_percentage_list <- list()
@@ -167,7 +172,6 @@ generate_cluster_celltype_df <- function(Brain_data, cell_type_column) {
   return(cluster_celltype_df)
 }
 
-# Example usage
 cell_type_column <- "sctype_classification"
 cluster_celltype_df <- generate_cluster_celltype_df(Brain_data, cell_type_column)
 
