@@ -5,7 +5,6 @@ library(Matrix)
 library(patchwork)
 library(tidyverse)
 library(HGNChelper)
-?BiocManager::install("rhdf5")
 library(data.table)
 
 #Create data folder
@@ -53,10 +52,4 @@ saveRDS(Brain_data,"~/data/Brain_Met_Seurat.rds" )
 Markers = FindAllMarkers(Brain_data, only.pos = T, min.pct = 0.25, logfc.threshold = 0.25)
 
 fwrite(Markers,"~/data/Brain_Met_Markers.csv")
-library(openxlsx)
-install.packages("openxlsx")
-
-Sctype_DB <- read.xlsx("~/ScTypeDB_full.xlsx")
-rm(gene_sets_prepare)
-gs_list <- gene_sets_prepare(Sctype_DB, tissue)
 
