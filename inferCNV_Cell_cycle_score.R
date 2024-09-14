@@ -43,7 +43,7 @@ gene_lists = gene_lists %>%
 
 # Identify intersections and filter gene locations
 
-gene_locs_T = gene_lists %>%
+gene_locs = gene_lists %>%
   filter(hgnc_symbol %in% all_genes_T) %>%
   group_by(hgnc_symbol) %>%
   mutate(entries = n()) %>%
@@ -82,7 +82,6 @@ gene_annotation = seurat_obj_Tumor@meta.data %>%
 #expression matrix of raw counts
 express = seurat_obj_Tumor@assays$RNA$counts %>% 
   data.frame(check.names = FALSE)
-express = express[rownames(express) != "MTRNR2L1",]
 
 # Create inferCNV Object ----------------------------------------------------------------
 
