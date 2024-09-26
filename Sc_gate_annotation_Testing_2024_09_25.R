@@ -10,6 +10,11 @@ library(purrr)
 # Data imported : "~/data/Kidney/ccRCC_seurat_object_Tumor.rds
 
 seurat_obj = readRDS("~/data/Kidney/ccRCC_seurat_object_Tumor.rds")
+
+# import the custom made model
+
+fix(scGate_model)
+write.table(scGate_model, "test.tsv", sep = "\t")  # export and then edit on Excel
 my_scGate_model_gene_list1 <- scGate::load_scGate_model("Scgate_Immunecell_example_genelist_2024_09_25.tsv.txt")
 
 obj <- scGate(seu_obj, model = my_scGate_model_gene_list1, save.levels = TRUE)
