@@ -123,7 +123,7 @@ sctype_score <- function(scRNAseqData, scaled = !0, gs, gs2 = NULL, gene_names_t
 # Input DB and study tissue (for sc_Type package)
 
 db_ <- "ScTypeDB_full.xlsx";
-tissue <- "Immune system" 
+tissue <- "Kidney" 
 
 # Input Seurat object file ----------------------------------------------
 
