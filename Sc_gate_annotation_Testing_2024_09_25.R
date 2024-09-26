@@ -1,3 +1,11 @@
+# Load Required Libraries
+
+library(dplyr)
+library(Seurat)
+library(patchwork)
+library(scGate)
+library(plotly)
+library(purrr)
 
 # Data imported : "~/data/Kidney/ccRCC_seurat_object_Tumor.rds
 
